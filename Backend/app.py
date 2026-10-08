@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-client = genai.Client(api_key="AIzaSyBv7O1jPxs3HIpQjkCWVt22N4NGe3x8tp0")
+client = genai.Client(api_key=os.environ["AIzaSyBv7O1jPxs3HIpQjkCWVt22N4NGe3x8tp0"])
 
 PROMPTS = {
     "Summary": """
@@ -53,7 +53,7 @@ def generate_speech(text, voice_id, locale):
     )
     url = "https://global.api.murf.ai/v1/speech/stream"
     headers = {
-        "api-key": "ap2_62820679-004b-40cb-822a-1d722a67a268",
+        "api-key": os.environ["ap2_62820679-004b-40cb-822a-1d722a67a268"],
         "Content-Type": "application/json"
     }
     data = {
